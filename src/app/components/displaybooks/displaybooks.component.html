@@ -1,0 +1,130 @@
+<!--p>displaybooks works!</p-->
+<div class="main-container">
+    <div class="container">
+      <div class="title">
+        Books
+        <span style="font-size: 15px; color: rgb(139, 136, 136);"
+          >({{ size }} items)</span
+        >
+      </div>
+      <div class="sort-choice">
+        <form>
+          <mat-form-field appearance="outline">
+            <mat-label>sort by relevance</mat-label>
+            <mat-select
+              [(value)]="selectedOption"
+              (selectionChange)="onclicksort()"
+            >
+              <mat-option value="none">
+                sort by relevance
+              </mat-option>
+              <mat-option value="Price:High To Low">
+                Price:High To Low
+              </mat-option>
+              <mat-option value="Price:Low To High">
+                Price:Low To High
+              </mat-option>
+              <mat-option value="By Book Name">
+                By Book Name
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+    <div class="addbook" *ngIf="isSeller">
+      <!--button class="btn-addbook" (click)="openDialog()">ADD BOOK</button-->
+    </div>
+    <div class="list-books">
+      <div
+        class="getAllNotes"
+        *ngFor="
+          let book of books
+            | bookSearch: bookSearch
+            | sortbyprice: sortbyprice
+            | paginate: { itemsPerPage: 10, currentPage: page, id: 'first' }
+        "
+      >
+        <mat-card matTooltip="{{ book.bookDetails }}">
+          <!--mat-card-title
+            *ngIf="isSeller"g c 
+            (click)="openImageDialog(book.bookId)"
+            matTooltip="Update Image"
+            ><img
+              src="{{ book.bookImage }}"
+              style="
+                height: 150px;
+                width: 120px;
+                margin-left: 55px;
+                margin-right: 55px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+              "
+            />
+          </mat-card-title-->
+          <mat-card-title *ngIf="isUser" matTooltip="Book Image"
+            ><img
+              src="{{ book.bookImage }}"
+              style="
+                height: 150px;
+                width: 120px;
+                margin-left: 55px;
+                margin-right: 55px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+              "
+            />
+          </mat-card-title>
+  
+          <mat-card-content
+            ><div class="bookname">{{ book.bookName }}</div>
+            <div class="authorname">by {{ book.authorName }}</div>
+            <div class="price">Rs. {{ book.price }}</div>
+            <div
+              class="availablity"
+              style="font-size: large;"
+              *ngIf="!book.quantity"
+            >
+              Out Of stock
+            </div>
+            <div class="availablity" style="color: blue;" *ngIf="book.quantity">
+              Available Books: {{ book.quantity }}
+            </div>
+            <div class="cart-buttons" *ngIf="isUser && book.quantity">
+              <div>
+                <button
+                  [style.background-color]="toggle ? 'green' : 'red'"
+                  class="addtobag"
+                  (click)="addToBag(book.bookId, book.quantity)"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+              <div><button class="wishlist">WISHLIST</button></div>
+            </div>
+            <div class="cart-buttons" *ngIf="isSeller">
+              <div>
+                <button class="addtobag" (click)="deleteBook(book.bookId)">
+                  DELETE BOOK
+                </button>
+              </div>
+              <div>
+                <!--button class="wishlist" (click)="openDialog2()">
+                  UPDATE BOOK
+                </button-->
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div>
+      <div class="paginator">
+        <pagination-controls
+          (pageChange)="page = $event"
+          id="first"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
+  

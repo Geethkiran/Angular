@@ -1,0 +1,55 @@
+<div class="backcontainer" fxLayout="column" fxLayoutAlign="start none">
+    <mat-toolbar style="background-color: #a03037;">
+      <mat-toolbar-row>
+        <!--------------- bookimg and book --------------------------->
+        <div style="height: 68%; margin-left: 10%;">
+          <a mat-button (click)="onCart()" class="bookicon">
+            <img class="bookimg" src="assets/image/education@2x.png" />
+          </a>
+          <div class="booktext">BookStore</div>
+        </div>
+        <!-------------------- search ------------------->
+        <div class="searche">
+          <img class="scicon" src="assets/image/searchicon.png" />
+          <input type="text" class="searchinput" placeholder="search.." />
+        </div>
+  
+        <div fxLayout="row" fxLayoutAlign="start end" style="margin-left: 23%;">
+          <div class="carttext" (click)="onCart()">Cart</div>
+          <a mat-button (click)="onCart()" class="cartimg">
+            <mat-icon color="primary">
+              <img class="image" src="assets/image/supermarket@2x.png" />
+            </mat-icon>
+          </a>
+          <!--a class="_3ko_Ud" href="/viewcart?otracker=Cart_Icon_Click">
+            <svg class="_2fcmoV" width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path class="_2JpNOH" d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86" fill="#fff"></path>
+            </svg>
+            <span>Cart</span></a-->
+          <button
+            mat-icon-button
+            fxShow="true"
+            fxHide.lt-md="true"
+            width="30"
+            style="margin-left: 22%;background-color: whitesmoke"
+            [matMenuTriggerFor]="beforeMenu"
+          >
+          <mat-icon id="profile">perm_identity</mat-icon>
+            <!--img class="profile" src="assets/image/bookstore.jpg" /-->
+          </button>
+  
+          <mat-menu #beforeMenu="matMenu" xPosition="before">
+            <button mat-menu-item (click)="onCart()">My Orders</button>
+            <button mat-menu-item (click)="onwhishlist()">My WhishList</button>
+            <button mat-menu-item>LogIn</button>
+            <!--button mat-menu-item>LogOut</button-->
+          </mat-menu>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-sidenav-container>
+      <mat-sidenav-content>
+        <app-user-books></app-user-books>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>

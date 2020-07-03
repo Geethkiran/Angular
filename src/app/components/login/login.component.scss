@@ -1,0 +1,120 @@
+
+.icons{
+  color: gray;
+}
+#bookstore_logo{
+  margin-top: 2%;
+  margin-left: 38%;
+  border-radius: 1cm;
+  width: 75px;
+  height: 75px;
+}
+#login_title{
+  margin-top: 5%;
+  margin-left: 10%;
+  font-family: "Times New Roman";
+  font-weight: bold;
+  margin-bottom: 02%;
+  font-size: 175%;
+}
+#signup_title{
+  margin-top: 10%;
+ // margin-left: 1%;
+  font-family: "Times New Roman";
+  font-weight: bold;
+  margin-bottom: 0%;
+  color:black;
+  font-size: 125%;
+  margin-left: -10%;
+}
+/*#signup_title{
+  margin-top: 5%;
+  margin-left: 8%;
+  font-family: "Times New Roman";
+  font-weight: bold;
+  margin-bottom: 02%;
+  font-size: 175%;
+}*/
+.err{
+  text-align: center;
+  font-family: "Times New Roman";
+  font-size: large;
+  font: bold;
+  color: red;
+  height: 10%;
+  width: auto;
+  background-color:navajowhite;
+}
+
+.card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  border-radius: 02%;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.459);
+}
+.row {
+  height: 33.3vh;
+}
+
+#register {
+  display: flex;
+  justify-content: space-between;
+}
+.header {
+  text-align: center;
+  margin-left: 25%;
+  font-size: 180%;
+}
+.mat-card-title {
+  text-align: center;
+}
+.mat-card-subtitle {
+  font-size: 90%;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.sign {
+  font-weight: 100;
+  margin-left: 0%;
+  font-family: sans-serif;
+}
+
+.email {
+  width: 85%;
+  align-content: center;
+}
+.password {
+  margin-top: 1%;
+  width: 85%;
+  align-content: center;
+  margin-bottom: 0%;
+}
+
+.pass-link {
+  color: gray;
+  margin-bottom: 7.5%;
+  margin-left: 30%;
+}
+#sigi-button {
+  margin-top: 3%;
+  margin-left: 7.5%;
+  font-weight: bold;
+  color: white;
+  width: 85%;
+ // border: 2px solid black;
+}
+.mat-raised-button.mat-primary {
+  background-color: #A03037;
+}
+.gray{
+  background-color: #ac5454;
+}
+.blue{
+  background-color: #6d0e0e;
+}
+#forget {
+  color: green;
+}

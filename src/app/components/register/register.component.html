@@ -1,0 +1,114 @@
+<html>
+  <form > 
+<div fxLayoutAlign="space-around center" fxFlex="100">
+  <mat-card fxFlex="30" class="card" fxFlex.xs="100">
+    
+    <div><img id="bookstore_logo" src="../../../assets/image/2766594.png"/></div>
+    
+    <mat-card-title class="Bookstore">
+      <span class="S">S</span>
+      <span class="i">i</span>
+      <span class="g">g</span>
+      <span class="n">n</span>
+      <span class="U">U</span>
+      <span class="p">p</span>
+    </mat-card-title>
+    <div fxLayoutAlign="space-around center">
+    <mat-card-header>
+      <mat-card-title calss="acc">Create New Bookstore account</mat-card-title>
+    </mat-card-header>
+    </div>
+    <!--mat-card class="box"-->
+      <div class="radio" fxLayout="row" fxLayoutAlign="space-around center">
+        <mat-radio-group
+          aria-label="Select an option"
+          fxLayoutGap="50px" (change)="onChange($event)" >
+          <mat-radio-button name="user" value="user">User</mat-radio-button>
+          <mat-radio-button name="Seller" value="seller">Seller</mat-radio-button>
+          <!--mat-radio-button name="Admin" value="admin">Admin</mat-radio-button-->
+        </mat-radio-group>
+      </div>
+     <body>
+      <!--div fxLayout="row" fxLayout.xs="column" fxLayoutGap="2%"-->
+    <div fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-form-field fxFlex.xs="100" appearance="outline" id="fullName">
+          <mat-label aria-autocomplete="off" > Full name</mat-label>
+          <input matInput placeholder="Full name" [formControl]="fullName" title="Full name start with upper case and min length 3"
+          autocomplete="off" />
+          <mat-icon class="icons" matSuffix >person_outline</mat-icon>
+          <mat-error *ngIf="fullName.invalid ">{{getFullnameErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+        <!--div fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-form-field fxFlex.xs="100" appearance="outline" id="lastname">
+          <mat-label aria-autocomplete="off"> Last name</mat-label>
+          <input matInput placeholder="Last name" [formControl]="lastname" title="Last name strat with upper case and min length 3"
+          />
+          <mat-icon class="icons" matSuffix >person_outline</mat-icon>
+          <mat-error *ngIf="lastname.invalid ">{{getLastnameErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div--> 
+
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-form-field appearance="outline" class="mobile">
+          <mat-label aria-autocomplete="off">Mobile Number</mat-label>
+          <input matInput maxlength="10" placeholder="Enter your mobile number" [formControl]="mobileNumber"  autocomplete="off"/>
+          <mat-icon class="icons" matSuffix>phone</mat-icon>
+          <mat-error *ngIf="mobileNumber.invalid ">{{getMobileErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-form-field appearance="outline" class="email">
+          <mat-label aria-autocomplete="off">Email id</mat-label>
+          <input matInput placeholder="Enter your email id" [formControl]="emailId" autocomplete="off"/>
+          <mat-icon class="icons" matSuffix>email</mat-icon>
+          <mat-error *ngIf="emailId.invalid ">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <!--div fxLayout="row" fxLayout.xs="column" fxLayoutGap="2%"-->
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-form-field appearance="outline" class="password">
+          <mat-label aria-autocomplete="off">Password</mat-label>
+          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password"
+          autocomplete="off" requried title="Password contain upper case, lowercase, spacial char, and number"/>
+            <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+            <mat-icon class="icons" matSuffix (click)="hide = !hide">{{
+              hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </mat-form-field>
+      </div>
+      <!--div fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-form-field appearance="outline" class="confirm">
+          <mat-label aria-autocomplete="off">Confirm</mat-label>
+          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+            [formControl]="confirmPassword" autocomplete="off" requried pattern="{{ password.value }}"/>
+            <mat-error *ngIf="confirmPassword.invalid">{{getConfirmPasswordErrorMessage()}}</mat-error>
+            <mat-error *ngIf="confirmPassword.hasError('pattern')">Password Mismatch</mat-error>
+            <mat-icon class="icons" matSuffix (click)="hide = !hide">{{
+              hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </mat-form-field>
+      </div-->
+      
+      <mat-card-actions>
+      <div class="signup-in">
+        <button mat-raised-button color = "primary" id="signbutton" mat-button (click)="register()" [disabled]=this.validate()  fxLayoutAlign="center center">
+          Signup
+      </button>
+      </div>
+      <div class="err" role="alert" *ngIf="errorMsg">{{errorMsg}}</div>
+    </mat-card-actions>
+    </body>
+  </mat-card>
+</div> 
+  </form>
+  <ngx-spinner 
+    bdColor="rgba(51,51,51,0.8)"
+    size="medium"
+    color="#fff"
+    type="square-jelly-box">
+  
+    <p style="font-size: 20px; color: rgb(233, 221, 221) ">Loading...</ngx-spinner>
+</html>

@@ -1,0 +1,51 @@
+<html>
+  <form #myform="ngForm">
+<div fxLayoutAlign="space-around center" fxFlex="100">
+  <mat-card fxFlex="25" class="card" fxFlex.xs="100">
+    <div><img id="bookstore_logo" src="../../../assets/image/2766594.png"/></div>
+    <div  fxLayout="row" fxLayout.xs="column" >
+      <mat-card-title fxFlex="45" id="login_title" fxLayout="row">LOGIN </mat-card-title>
+      <mat-card-title fxFlex="45" fxLayout="row">
+        <button mat-flat-button (click)="register()" id="signup_title">SIGNUP</button>
+        </mat-card-title>
+      <!--mat-card-title fxFlex="45" id="signup_title" fxLayout="row">SIGNUP</mat-card-title-->
+    </div>
+
+   <body>
+      <!-- usre email id -->
+
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-form-field appearance="outline" class="email">
+          <mat-label aria-autocomplete="off">Enter your email id</mat-label>
+          <input matInput placeholder="Enter your email id" [formControl]="emailFormControl" />
+          <mat-icon class="icons" matSuffix>email</mat-icon>
+          <mat-error *ngIf="emailFormControl.invalid ">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <!-- user password -->
+
+        <mat-form-field appearance="outline" class="password">
+          <mat-label>Enter your password</mat-label>
+          <input matInput placeholder="Enter your password" title="Password contain upper case, lowercase, spacial char, and number" [type]="hide ? 'password' : 'text'" [formControl]="password"
+            autocomplete="off" requried />
+          <mat-error *ngIf="password.invalid ">{{getPasswordErrorMessage()}}</mat-error>
+          <mat-icon class="icons" matSuffix (click)="hide = !hide">{{
+              hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+        </mat-form-field>
+      </div>
+     
+      <div  id="register">
+        <button mat-raised-button color ="primary" id="sigi-button" mat-button (click)="login()" [disabled]=this.validate()   fxLayoutAlign="center center">
+          Sign in
+        </button>
+      </div>
+      <button mat-flat-button (click)="forgotpassword()" class="pass-link" >Forgot Password?</button>
+      <div class="err" role="alert" *ngIf="successMsg">{{successMsg}}</div>
+      <div class="err" role="alert" *ngIf="incorrectInput">{{incorrectInput}}</div>
+      <div class="err" role="alert" *ngIf="failedMsg">{{failedMsg}}</div>
+    </body>
+  </mat-card>
+</div>
+</form>
+</html>

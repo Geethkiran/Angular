@@ -1,0 +1,66 @@
+<div fxLayout="row" fxLayoutAlign="space-evenly start" style="margin-left: 10%;">
+    <div *ngFor="let book of books" >
+        <!-- <div *ngIf="!book.bookVerified && !book.bookApproveStatus"> -->
+        <mat-card class="matcard2" >
+            <div class="cartdetails" fxLayout="row" fxLayoutAlign="start start">
+                <img class="bookimg" src="{{ book.bookImage }}" />
+
+                <div class="bookdetails">
+                    <div class="booktitle" style="word-wrap: break-word;">
+                        {{ book.bookName }}
+                    </div>
+
+                    <div class="sub" style="word-wrap: break-word;">
+                        {{ book.bookAuthor }}
+                    </div>
+                    <div style="
+                margin-bottom: 11%;
+                font: Bold 18px/15px Lato;
+                margin-left: -25px;
+              ">
+                        Rs. {{ book.bookPrice }}
+                    </div>
+                    <div style="
+                margin-bottom: 11%;
+                margin-left: -25px;
+                word-wrap: break-word;
+              ">
+                        <strong>Seller:</strong> <a routerLink="/seller">{{ book.sellerName }}</a>
+                    </div>
+                </div>
+            </div>
+            <!-- <div style="margin-bottom: 10px; font: Bold 18px/15px Lato;">
+                Description:
+            </div>
+            <div>{{ book.bookDescription }}</div> -->
+
+            <!-- </div> -->
+            <div fxLayout="row wrap" fxLayoutAlign="end end" *ngIf="both">
+                <button mat-raised-button class="button" style="background-color:orange;"
+                    (click)="onDisApprove(book)">
+                   add to cart
+                </button>
+                <button mat-raised-button class="button" (click)="onApprove(book)">
+                    wish list
+                </button>
+            </div>
+            <div *ngIf="disapprove">
+                <button mat-raised-button class="button" style="background-color: yellow;">
+                    add to cart
+                </button>
+            </div>
+            <div *ngIf="approve">
+                <button mat-raised-button class="button">
+                    wish list
+                </button>
+            </div>
+        </mat-card>
+        <br />
+        <!-- </div> -->
+        <!-- </div> -->
+    </div>
+    <!---------------------------- DisApproved Books --------------------->
+</div>
+<!-- <div class="footer">
+    <app-footer></app-footer>
+  </div> -->
